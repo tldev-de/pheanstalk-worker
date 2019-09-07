@@ -27,7 +27,7 @@ class Worker
      */
     public function __construct($host, $port = PheanstalkInterface::DEFAULT_PORT, $connectTimeout = null, LoggerInterface $logger = null)
     {
-        $this->_pheanstalk = new Pheanstalk($host, $port, $connectTimeout);
+        $this->_pheanstalk = Pheanstalk::create($host, $port, $connectTimeout);
         if ($logger) {
             $this->_logger = $logger;
         }
